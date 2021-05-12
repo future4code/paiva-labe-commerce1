@@ -27,6 +27,7 @@ export default class App extends React.Component {
           <Cards/>      
         </Home>
         <Filtros/>
+        <Carrinho/>
 
         <GlobalStyle />
       </MainContainer>

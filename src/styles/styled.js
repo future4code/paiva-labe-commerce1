@@ -4,7 +4,14 @@ export const MainContainer = styled.div`
 
 `
 export const CarrinhoContainer = styled.div`
-
+display:flex;
+flex-direction:column;
+border:1px solid black;
+justify-content: space-between;
+div{
+    display:flex;
+    justify-content: space-between;
+}
 `
 export const HomeContainer = styled.div`
 width: 500px;
@@ -36,3 +43,4 @@ export const SecaoFiltros = styled.div`
 display: flex;
 flex-direction: column;
 `
+
