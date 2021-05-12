@@ -7,6 +7,11 @@ import Cards from './components/Card/Card'
 
 export default class App extends React.Component {
 
+
+
+
+
+  
   state = {
     id: Date.now(),
     name: "",
