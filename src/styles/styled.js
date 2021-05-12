@@ -19,7 +19,20 @@ grid-gap: 10px;
 `
 export const CardContainer = styled.div`
 display: flex;
-width: 100px;
-width: 100px;
-height: 100px;
+flex-direction: column;
+border: solid black 1px;
+text-align: center;
+
+img {
+    width: 100%;
+}
+
+button {
+    padding: 5px
+}
+`
+
+export const SecaoFiltros = styled.div`
+display: flex;
+flex-direction: column;
 `

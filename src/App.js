@@ -4,6 +4,7 @@ import { MainContainer } from './styles/styled'
 import GlobalStyle from './styles/global'
 import Carrinho from './components/Carrinho/Carrinho'
 import Cards from './components/Card/Card'
+import Filtros from './components/Filtros/Filtros';
 
 export default class App extends React.Component {
 
@@ -23,8 +24,9 @@ export default class App extends React.Component {
       <MainContainer>
         <h1>T-shirt Labemoon</h1>
         <Home>
-          <Cards/>
+          <Cards/>      
         </Home>
+        <Filtros/>
 
         <GlobalStyle />
       </MainContainer>

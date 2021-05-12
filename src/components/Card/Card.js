@@ -8,6 +8,13 @@ export default class Card extends React.Component {
         return (
             <CardContainer>
                 <img src={Foto1} />
+
+                <div>
+                    <p>Produto 1</p>
+                    <p>200,00</p>
+                    <button>Adicionar ao Carrinho</button>
+                </div>
+                
             </CardContainer>
         )
     }
