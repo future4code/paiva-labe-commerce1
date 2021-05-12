@@ -1,15 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Home from './components/Home/Home/Home'
+import Home from './components/Home/Home'
+import { MainContainer } from './styles/styled'
+import GlobalStyle from './styles/global'
+import Carrinho from './components/Carrinho/Carrinho'
+import Cards from './components/Card/Card'
 
-export default class App extends React.Component{
+export default class App extends React.Component {
+
+  state = {
+    id: Date.now(),
+    name: "",
+    url: ''
+  }
+
   render() {
     return (
-      <div>
+      <MainContainer>
         <h1>T-shirt Labemoon</h1>
-        <Home/>
-      </div>
+        <Home>
+          <Cards/>
+        </Home>
+
+        <GlobalStyle />
+      </MainContainer>
     );
   }
 }
