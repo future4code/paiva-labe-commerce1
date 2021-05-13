@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-/* grid-template-rows: repeat(3, 1fr); */
+grid-template-columns: repeat(3, 1fr); 
+grid-template-rows: repeat(3, 1fr); 
 `
 export const CarrinhoContainer = styled.div`
 display:flex;
+width: 200px;
+height: 100px;
 flex-direction:column;
 border:1px solid black;
 justify-content: space-between;
@@ -19,8 +21,8 @@ div{
 export const HomeContainer = styled.div`
 margin: 5px auto;
 background-color: yellow;
-display: grid;
-grid-template-columns: repeat(3, 1fr);
+/* display: grid; */
+/* grid-template-columns: repeat(3, 1fr); */
 grid-gap: 10px;
 
 `
