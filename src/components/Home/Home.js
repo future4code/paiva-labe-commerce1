@@ -12,6 +12,27 @@ export default class Home extends React.Component {
         ordem: "crescente"
     }
     render() {
+        console.log(this.props)
+
+        const produtoFiltrado = this.props.produtos
+            .filter((item) => {
+                if (
+                item.name.includes(this.props.inputValue)
+                ) {
+                return item.id;
+                }
+            })
+            .filter((item) => {
+                if (item.value >= this.props.inputValorMinimo) {
+                return item.id;
+                }
+            })
+            .filter((item) => {
+                if (item.value <= this.props.inputValorMaximo) {
+                return item.id;
+                }
+        });
+
         return (
             <HomeContainer>
                 <div className="filter-superior">
@@ -21,6 +42,22 @@ export default class Home extends React.Component {
                     </select>
                     <p>Quantidade de Produtos: 2</p>
                 </div>
+
+                <div>
+                    {produtoFiltrado.map((produto) => {
+                        return (
+                        <div>
+                            <img src={produto.imageUrl} alt=""></img>
+                            <div>
+                            <p>{produto.name}</p>
+                            <p>Valor: {produto.value}</p>
+                            <button>Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                        );
+                    })}
+                </div>
+
                 <Card produtoFoto={camiseta1} produtoNome="aaaaaaa" produtoPreco="aaaa" />
                 <Card produtoFoto={camiseta2} produtoNome="aaaaaaa" produtoPreco="aaaa" />
                 <Card produtoFoto={camiseta3} produtoNome="aaaaaaa" produtoPreco="aaaa" />

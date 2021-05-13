@@ -11,31 +11,52 @@ export default class App extends React.Component {
       {
         id: 1,
         name: "Camisa Marte",
-        value: 10000.0,
+        value: 100.0,
         imageUrl: "https://picsum.photos/200/200"
       },
       {
         id: 2,
         name: "T-shirt lua",
-        value: 10000.0,
+        value: 50.0,
         imageUrl: "https://picsum.photos/200/200"
       },
       {
         id: 3,
         name: "Regata plutão",
-        value: 10000.0,
+        value: 125.0,
         imageUrl: "https://picsum.photos/200/200"
       }
     ],
-    inputValue: ""
+    inputValue: "",
+    inputValorMinimo: -Infinity,
+    inputValorMaximo: +Infinity
   };
   
+  onChangeBuscaNome = (event) => {
+    this.setState({ inputValue: event.target.value });
+  };
+
+  onChangeValorMin = (event) => {
+    this.setState({ inputValorMinimo: event.target.value });
+  };
+
+  onChangeValorMax = (event) => {
+    this.setState({ inputValorMaximo: event.target.value });
+  };
   render() {
+
     return (
       <MainContainer>
         <Carrinho />
-        <Home />
-        <Filtros />
+        <Home produtos={this.state.produtos}/>
+        <Filtros  
+        inputValue={this.state.inputValue} 
+        inputValorMinimo={this.state.inputValorMinimo} 
+        inputValorMaximo={this.state.inputValorMaximo}
+        onChangeBuscaNome={this.onChangeBuscaNome}
+        onChangeValorMin={this.onChangeValorMin}
+        onChangeValorMax={this.onChangeValorMax}
+        />
         <GlobalStyle />
       </MainContainer>
     );
