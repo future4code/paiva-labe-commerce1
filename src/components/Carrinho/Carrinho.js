@@ -1,5 +1,5 @@
 import React from 'react';
-import {CarrinhoContainer} from '../../styles/styled'
+import { CarrinhoContainer } from '../../styles/styled'
 
 export default class Carrinho extends React.Component {
 
@@ -8,14 +8,14 @@ export default class Carrinho extends React.Component {
             <CarrinhoContainer>
                 <h3>Carrinho:</h3>
                 <div>
-                <p>2x</p>
-                <p>Produto</p>
-                <button>Remover</button>
+                    <p>2x</p>
+                    <p>Produto</p>
+                    <button>Remover</button>
                 </div>
                 <div>
-                <p>2x</p>
-                <p>Produto</p>
-                <button>Remover</button>
+                    <p>2x</p>
+                    <p>Produto</p>
+                    <button>Remover</button>
                 </div>
                 <p>Valor total:R$70</p>
 

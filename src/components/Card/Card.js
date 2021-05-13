@@ -1,20 +1,17 @@
 import React from 'react';
 import { CardContainer } from '../../styles/styled'
-import Foto1 from '../../img/camisetas/camiseta1.png'
 
 export default class Card extends React.Component {
 
     render() {
         return (
             <CardContainer>
-                <img src={Foto1} />
-
+                <img src={this.props.produtoFoto} />
                 <div>
-                    <p>Produto 1</p>
-                    <p>200,00</p>
-                    <button>Adicionar ao Carrinho</button>
+                    <p>{this.props.produtoNome}</p>
+                    <p>{this.props.produtoPreco}</p>
+                    <button onClick="#">Adicionar ao Carrinho</button>
                 </div>
-                
             </CardContainer>
         )
     }
