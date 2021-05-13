@@ -13,9 +13,7 @@ export default class Filtros extends React.Component {
                 <input type="number"></input>
                 <label>Busca por nome: </label>
                 <input type="text" placeholder="Produto"></input>
-                
             </SecaoFiltros>
-            
         )
     }
 }
