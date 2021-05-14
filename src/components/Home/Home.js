@@ -30,7 +30,7 @@ export default class Home extends React.Component {
                 if (item.value <= this.props.inputValorMaximo) {
                     return item.id;
                 }
-        });
+            });
 
         if (this.state.ordem === "crescente") {
             produtoFiltrado.sort((a, b) => {
@@ -46,28 +46,32 @@ export default class Home extends React.Component {
 
         return (
             <HomeContainer>
-                <div value={this.state.ordem} className="filter-superior">
-                    <select onChange={this.onChangeOrdenacao}>
-                        <option value="crescente">Crescente</option>
-                        <option value="decrescente">Decrescente</option>
-                    </select>
-                    <p>Quantidade de Produtos: {quantidadeDeItem}</p>
+                <div className="home-container-align">
+                    <div className="produtos-container">
+                        <div value={this.state.ordem} className="filtro-align">
+                            <p>Quantidade de Produtos: {quantidadeDeItem}</p>
+                            <select onChange={this.onChangeOrdenacao}>
+                                <option value="crescente">Crescente</option>
+                                <option value="decrescente">Decrescente</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div className="container-do-card">
+                        {produtoFiltrado.map((produto) => {
+                            const valorConvertidoParaReal = produto.value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+                            return (
+                                <div className="card">
+                                    <img src={produto.imageUrl} alt={produto.name} />
+                                    <p>{produto.name}</p>
+                                    <p><strong>{valorConvertidoParaReal}</strong></p>
+                                    <button className="botao">Adicionar ao Carrinho</button>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
 
-                <div>
-                    {produtoFiltrado.map((produto) => {
-                        return (
-                            <div>
-                                <img src={produto.imageUrl} alt={produto.name}></img>
-                                <div>
-                                    <p>{produto.name}</p>
-                                    <p>Valor: {produto.value}</p>
-                                    <button>Adicionar ao Carrinho</button>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
             </HomeContainer>
         )
     }

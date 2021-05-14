@@ -9,6 +9,10 @@ import Camiseta2 from './img/camisetas/camiseta2.png'
 import Camiseta3 from './img/camisetas/camiseta3.png'
 import Camiseta4 from './img/camisetas/camiseta4.png'
 import Camiseta5 from './img/camisetas/camiseta5.png'
+import Camiseta6 from './img/camisetas/camiseta6.jpg'
+import Camiseta7 from './img/camisetas/camiseta7.jpg'
+import Camiseta8 from './img/camisetas/camiseta8.jpg'
+import Camiseta9 from './img/camisetas/camiseta9.png'
 
 
 export default class App extends React.Component {
@@ -16,14 +20,14 @@ export default class App extends React.Component {
     produtos: [
       {
         id: 1,
-        name: "Camisa Marte",
-        value: 100.0,
+        name: "Camisa cachorro astronauta",
+        value: 135.0,
         imageUrl: Camiseta1
       },
       {
         id: 2,
-        name: "T-shirt lua",
-        value: 50.0,
+        name: "T-shirt Dog no foguete",
+        value: 79.90,
         imageUrl: Camiseta2
       },
       {
@@ -34,10 +38,41 @@ export default class App extends React.Component {
       },
       {
         id: 4,
-        name: "Regata plutão",
+        name: "E.T Phone Home",
         value: 175.0,
         imageUrl: Camiseta4
+      },
+      {
+        id: 5,
+        name: "T-shirt nave espacial",
+        value: 210.1,
+        imageUrl: Camiseta5
+      },
+      {
+        id: 6,
+        name: "Blusa N.A.S.A",
+        value: 120.90,
+        imageUrl: Camiseta6
+      },
+      {
+        id: 7,
+        name: "I come in peace",
+        value: 150.0,
+        imageUrl: Camiseta7
+      },
+      {
+        id: 8,
+        name: "Blusinha NASA",
+        value: 49.90,
+        imageUrl: Camiseta8
+      },
+      {
+        id: 9,
+        name: "Blusa Foguete não tem ré",
+        value: 99.0,
+        imageUrl: Camiseta9
       }
+
     ],
     inputValue: "",
     inputValorMinimo: -Infinity,
@@ -59,16 +94,24 @@ export default class App extends React.Component {
 
     return (
       <MainContainer>
-        <Carrinho />
-        <Home produtos={this.state.produtos} inputValue={this.state.inputValue} inputValorMaximo={this.state.inputValorMaximo} inputValorMinimo={this.state.inputValorMinimo} />
-        <Filtros
-          inputValue={this.state.inputValue}
-          inputValorMinimo={this.state.inputValorMinimo}
-          inputValorMaximo={this.state.inputValorMaximo}
-          onChangeBuscaNome={this.onChangeBuscaNome}
-          onChangeValorMin={this.onChangeValorMin}
-          onChangeValorMax={this.onChangeValorMax}
-        />
+        <header>
+          <h1>Hello World</h1>
+        </header>
+        <div className="container-lado-esquerdo">
+          <Carrinho />
+          <Filtros
+            inputValue={this.state.inputValue}
+            inputValorMinimo={this.state.inputValorMinimo}
+            inputValorMaximo={this.state.inputValorMaximo}
+            onChangeBuscaNome={this.onChangeBuscaNome}
+            onChangeValorMin={this.onChangeValorMin}
+            onChangeValorMax={this.onChangeValorMax}
+          />
+        </div>
+        <Home produtos={this.state.produtos} inputValue={this.state.inputValue} inputValorMaximo={this.state.inputValorMaximo} inputValorMinimo={this.state.inputValorMinimo} id={this.state.id} />
+        <footer>
+          <h1>Oi, eu sou um footer !</h1>
+        </footer>
         <GlobalStyle />
       </MainContainer>
     );
