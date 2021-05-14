@@ -29,13 +29,13 @@ export default class App extends React.Component {
       {
         id: 3,
         name: "Regata plutão",
-        value: 1250.0,
+        value: 125.0,
         imageUrl: Camiseta3
       },
       {
         id: 4,
         name: "Regata plutão",
-        value: 125.0,
+        value: 175.0,
         imageUrl: Camiseta4
       }
     ],

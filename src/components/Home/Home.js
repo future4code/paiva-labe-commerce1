@@ -6,7 +6,13 @@ export default class Home extends React.Component {
     state = {
         ordem: "crescente"
     }
+
+    onChangeOrdenacao = (event) => {
+        this.setState({ ordem: event.target.value });
+    }
+
     render() {
+
         const produtoFiltrado = this.props.produtos
             .filter((item) => {
                 if (
@@ -24,44 +30,32 @@ export default class Home extends React.Component {
                 if (item.value <= this.props.inputValorMaximo) {
                     return item.id;
                 }
-            });
+        });
 
-
-        const produtoOrdemCrescente = produtoFiltrado.sort((a, b) => {
-            return a.value < b.value ? -1 : a.value > b.value ? 1 : 0;
-        })
-        console.log('Ordem Crescente', produtoOrdemCrescente)
-
-
-
-
-        const produtoOrdemDecrescete = produtoFiltrado.reverse((a, b) => {
-            return a.value > b.value ? +1 : a.value < b.value ? 0 : 1;
-        })
-        console.log('Ordem Decrescente', produtoOrdemDecrescete)
-
-
-
-
-
-
+        if (this.state.ordem === "crescente") {
+            produtoFiltrado.sort((a, b) => {
+                return a.value < b.value ? -1 : a.value > b.value ? 1 : 0;
+            })
+        } else if (this.state.ordem === "decrescente") {
+            produtoFiltrado.sort((a, b) => {
+                return a.value > b.value ? -1 : a.value < b.value ? 1 : 0;
+            })
+        }
 
         const quantidadeDeItem = (produtoFiltrado.length)
 
         return (
             <HomeContainer>
-                <div className="filter-superior">
-                    <select>
-                        <option>Crescente</option>
-                        <option>Decrescente</option>
+                <div value={this.state.ordem} className="filter-superior">
+                    <select onChange={this.onChangeOrdenacao}>
+                        <option value="crescente">Crescente</option>
+                        <option value="decrescente">Decrescente</option>
                     </select>
                     <p>Quantidade de Produtos: {quantidadeDeItem}</p>
                 </div>
 
                 <div>
-
                     {produtoFiltrado.map((produto) => {
-                        console.log(produto)
                         return (
                             <div>
                                 <img src={produto.imageUrl} alt={produto.name}></img>
