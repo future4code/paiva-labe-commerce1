@@ -80,20 +80,52 @@ export default class App extends React.Component {
     produtosCarrinho: []
   };
 
-  
-  adicionaItemAoCarrinho = (id, name, value) => {
+  // adicionaItemAoCarrinho = (id, name, value) => {
     
-    const novoItem = {
-        id: id,
-        name: name,
-        value: value
+  //   // const novoItem = {
+  //   //     id: id,
+  //   //     name: name,
+  //   //     value: value,
+  //   //     quantidade: 0
+  //   // }
 
-    }
-    const copiaNovoItem = [novoItem, ...this.state.produtosCarrinho]
-    this.setState({ produtosCarrinho: copiaNovoItem })
-   
+  //   // const copiaNovoItem = [novoItem, ...this.state.produtosCarrinho]
+  //   // this.setState({ produtosCarrinho: copiaNovoItem })
+  // }
+  adicionaItemAoCarrinho = (produto) => {
+    const carrinhoTemp = this.state.produtosCarrinho
+    const resultadoFiltro = carrinhoTemp.filter((item) => { return item.id === produto.id})
+     if (resultadoFiltro.length > 0) {
+       const somaCarrinho = carrinhoTemp.map((item)=>{
+         if (resultadoFiltro[0].id===item.id) {
+           item.quantidade++
+         }
+         return item
+       })
+       this.setState({ produtosCarrinho:somaCarrinho})
+     } else if (resultadoFiltro.length===0){
+       const itemCarrinho = {
+         id: produto.id,
+         name: produto.name,
+         value: produto.value,
+         quantidade:1
+       }
+       const carrinho = [...this.state.produtosCarrinho, itemCarrinho]
+       this.setState({produtosCarrinho:carrinho})
+     }
+     console.log(this.state.produtosCarrinho)
+  }
 
-}
+  // const ListaExibicaoCarrinho = this.state.listaCarrinho
+  // .filter(function (a) {
+  //   return !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true);
+  // }, Object.create(null))
+  // .map((produto)=>{
+  //   return (
+
+  //   )
+  // })
+
 
   onChangeBuscaNome = (event) => {
     this.setState({ inputValue: event.target.value });
@@ -114,6 +146,7 @@ export default class App extends React.Component {
           <h1>Hello World</h1>
         </header>
         <div className="container-lado-esquerdo">
+          
           <Carrinho
           produtosCarrinho={this.state.produtosCarrinho}
           
