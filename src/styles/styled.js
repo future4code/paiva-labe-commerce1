@@ -26,7 +26,7 @@ footer {
 .container-lado-esquerdo {
     grid-column: 1;
     grid-row: 2 / 3;
-    background-color: blue;
+    background-color: lightblue;
 }
 
 `

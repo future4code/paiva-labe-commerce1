@@ -44,6 +44,7 @@ export default class Home extends React.Component {
 
         const quantidadeDeItem = (produtoFiltrado.length)
 
+
         return (
             <HomeContainer>
                 <div className="home-container-align">
@@ -65,7 +66,7 @@ export default class Home extends React.Component {
                                     <img src={produto.imageUrl} alt={produto.name} />
                                     <p>{produto.name}</p>
                                     <p><strong>{valorConvertidoParaReal}</strong></p>
-                                    <button className="botao">Adicionar ao Carrinho</button>
+                                    <button className="botao"onClick={()=>this.props.adicionaItemAoCarrinho(produto.id, produto.name, produto.value)}  >Adicionar ao Carrinho</button>
                                 </div>
                             );
                         })}

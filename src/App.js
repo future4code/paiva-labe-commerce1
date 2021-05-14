@@ -76,8 +76,24 @@ export default class App extends React.Component {
     ],
     inputValue: "",
     inputValorMinimo: -Infinity,
-    inputValorMaximo: +Infinity
+    inputValorMaximo: +Infinity,
+    produtosCarrinho: []
   };
+
+  
+  adicionaItemAoCarrinho = (id, name, value) => {
+    
+    const novoItem = {
+        id: id,
+        name: name,
+        value: value
+
+    }
+    const copiaNovoItem = [novoItem, ...this.state.produtosCarrinho]
+    this.setState({ produtosCarrinho: copiaNovoItem })
+   
+
+}
 
   onChangeBuscaNome = (event) => {
     this.setState({ inputValue: event.target.value });
@@ -98,7 +114,10 @@ export default class App extends React.Component {
           <h1>Hello World</h1>
         </header>
         <div className="container-lado-esquerdo">
-          <Carrinho />
+          <Carrinho
+          produtosCarrinho={this.state.produtosCarrinho}
+          
+          />
           <Filtros
             inputValue={this.state.inputValue}
             inputValorMinimo={this.state.inputValorMinimo}
@@ -108,7 +127,13 @@ export default class App extends React.Component {
             onChangeValorMax={this.onChangeValorMax}
           />
         </div>
-        <Home produtos={this.state.produtos} inputValue={this.state.inputValue} inputValorMaximo={this.state.inputValorMaximo} inputValorMinimo={this.state.inputValorMinimo} id={this.state.id} />
+        <Home 
+        produtos={this.state.produtos} 
+        inputValue={this.state.inputValue} 
+        inputValorMaximo={this.state.inputValorMaximo} 
+        inputValorMinimo={this.state.inputValorMinimo} id={this.state.id}
+        adicionaItemAoCarrinho={this.adicionaItemAoCarrinho}
+        />
         <footer>
           <h1>Oi, eu sou um footer !</h1>
         </footer>
