@@ -80,18 +80,6 @@ export default class App extends React.Component {
     produtosCarrinho: []
   };
 
-  // adicionaItemAoCarrinho = (id, name, value) => {
-    
-  //   // const novoItem = {
-  //   //     id: id,
-  //   //     name: name,
-  //   //     value: value,
-  //   //     quantidade: 0
-  //   // }
-
-  //   // const copiaNovoItem = [novoItem, ...this.state.produtosCarrinho]
-  //   // this.setState({ produtosCarrinho: copiaNovoItem })
-  // }
   adicionaItemAoCarrinho = (produto) => {
     const carrinhoTemp = this.state.produtosCarrinho
     const resultadoFiltro = carrinhoTemp.filter((item) => { return item.id === produto.id})
@@ -108,24 +96,12 @@ export default class App extends React.Component {
          id: produto.id,
          name: produto.name,
          value: produto.value,
-         quantidade:1
+         quantidade: 1
        }
        const carrinho = [...this.state.produtosCarrinho, itemCarrinho]
        this.setState({produtosCarrinho:carrinho})
      }
-     console.log(this.state.produtosCarrinho)
   }
-
-  // const ListaExibicaoCarrinho = this.state.listaCarrinho
-  // .filter(function (a) {
-  //   return !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true);
-  // }, Object.create(null))
-  // .map((produto)=>{
-  //   return (
-
-  //   )
-  // })
-
 
   onChangeBuscaNome = (event) => {
     this.setState({ inputValue: event.target.value });
@@ -138,6 +114,17 @@ export default class App extends React.Component {
   onChangeValorMax = (event) => {
     this.setState({ inputValorMaximo: event.target.value });
   };
+
+  apagaItemDoCarrinho = (prodCar) => {
+    const itensNaoDeletados = this.state.produtosCarrinho.map((prods) =>{
+      if (prods.id === prodCar.id) {
+        return {...prods, quantidade: prods.quantidade-1}
+      } 
+        return prods
+    }).filter((prods) => prods.quantidade > 0)
+    this.setState({ produtosCarrinho: itensNaoDeletados })
+  }
+
   render() {
 
     return (
@@ -149,6 +136,7 @@ export default class App extends React.Component {
           
           <Carrinho
           produtosCarrinho={this.state.produtosCarrinho}
+          apagaItemDoCarrinho={this.apagaItemDoCarrinho}
           
           />
           <Filtros

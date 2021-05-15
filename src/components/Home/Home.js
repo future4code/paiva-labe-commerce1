@@ -66,7 +66,7 @@ export default class Home extends React.Component {
                                     <img src={produto.imageUrl} alt={produto.name} />
                                     <p>{produto.name}</p>
                                     <p><strong>{valorConvertidoParaReal}</strong></p>
-                                    <button className="botao"onClick={()=>this.props.adicionaItemAoCarrinho(produto)}  >Adicionar ao Carrinho</button>
+                                    <button className="botao"onClick={()=>this.props.adicionaItemAoCarrinho(produto)}>Adicionar ao Carrinho</button>
                                 </div>
                             );
                         })}
