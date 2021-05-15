@@ -3,8 +3,15 @@ import { CarrinhoContainer } from '../../styles/styled'
 
 export default class Carrinho extends React.Component {
 
-    render() {
+    changeTotalValue = () => {
+        let valorTotal = 0
+        for (let prod of this.props.produtosCarrinho) {
+            valorTotal += prod.value * prod.quantidade
+        }
+        return valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+    }
 
+    render() {
 
         return (
 
@@ -12,19 +19,17 @@ export default class Carrinho extends React.Component {
                 <h3>Carrinho:</h3>
                 {this.props.produtosCarrinho.filter(function (a) {
                     return !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true);
-                }, Object.create(null)) .map((prodCarrinho) => {
-
+                }, Object.create(null)).map((prodCarrinho) => {
                     return (
                         <div key={prodCarrinho.name}>
                             <p>{prodCarrinho.quantidade}X</p>
                             <p>{prodCarrinho.name}</p>
-                            <button onClick={this.apagaItemDoCarrinho}>Remover</button>
-                        </div>)
+                            <button onClick={() => this.props.apagaItemDoCarrinho(prodCarrinho)}>Remover</button>
+                        </div>
+                    )
                 })
-                
                 }
-                
-                <p>Valor total:R$70</p>
+                <p>Valor total: {this.changeTotalValue()}</p>
             </CarrinhoContainer>
         )
     }
