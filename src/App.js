@@ -13,6 +13,7 @@ import Camiseta6 from './img/camisetas/camiseta6.jpg'
 import Camiseta7 from './img/camisetas/camiseta7.jpg'
 import Camiseta8 from './img/camisetas/camiseta8.jpg'
 import Camiseta9 from './img/camisetas/camiseta9.png'
+import Header from './components/Header/Header';
 
 
 export default class App extends React.Component {
@@ -129,9 +130,7 @@ export default class App extends React.Component {
 
     return (
       <MainContainer>
-        <header>
-          <h1>Hello World</h1>
-        </header>
+        <Header></Header>
         <div className="container-lado-direito">
           <Carrinho
           produtosCarrinho={this.state.produtosCarrinho}

@@ -3,16 +3,8 @@ import styled from 'styled-components';
 export const MainContainer = styled.div`
 display: grid;
 grid-template-columns:  200px 1fr 200px;
-grid-template-rows: 100px 1fr 1fr 300px;
+grid-template-rows: 150px 20px 1fr 1fr 300px;
 min-height: 100vh;
-
-header {
-    display: flex;
-    grid-column: 1 / -1;
-    justify-content: center;
-    background-color: #FDEA2D;
-    align-items: center;
-}
 
 footer {
     grid-column: 1 / -1;
@@ -33,10 +25,38 @@ footer {
     grid-row: 2 / -1;
     background-color: #d3d4d6;
 }
-
 `
+
+export const HeaderContainer = styled.div`
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    
+    img.logo {
+        width: 300px;
+    }
+    img {
+        width: 30px;
+    }
+    .icones-direita {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        width: 400px;
+        justify-content: space-between
+    }
+    .input-login {
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+    }
+`
+
 export const CarrinhoContainer = styled.div`
 /* border:1px solid black; */
+margin: 10px;
 .info-carrinho {
     display: flex;
     justify-content: space-between;
@@ -58,6 +78,7 @@ grid-column: 2;
     display: flex;
     justify-content: space-around;
     justify-items: center;
+    padding: 5px;
 }
 
 .container-do-card {
@@ -114,9 +135,17 @@ grid-column: 1;
 grid-row: 2;
 
 .container-de-filtros{
-input:last-child {
-    margin-bottom: 10px;
-}
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    input:last-child {
+        margin-bottom: 10px;
+    }
+    input {
+        border-radius: 5px;
+        border: none;
+        height: 25px;
+    }
 }
 `
 
