@@ -132,13 +132,13 @@ export default class App extends React.Component {
         <header>
           <h1>Hello World</h1>
         </header>
-        <div className="container-lado-esquerdo">
-          
+        <div className="container-lado-direito">
           <Carrinho
           produtosCarrinho={this.state.produtosCarrinho}
           apagaItemDoCarrinho={this.apagaItemDoCarrinho}
-          
           />
+        </div>
+        <div className="container-lado-esquerdo">
           <Filtros
             inputValue={this.state.inputValue}
             inputValorMinimo={this.state.inputValorMinimo}
@@ -146,7 +146,7 @@ export default class App extends React.Component {
             onChangeBuscaNome={this.onChangeBuscaNome}
             onChangeValorMin={this.onChangeValorMin}
             onChangeValorMax={this.onChangeValorMax}
-          />
+        />
         </div>
         <Home 
         produtos={this.state.produtos} 
