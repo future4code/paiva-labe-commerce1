@@ -21,9 +21,8 @@ export default class Carrinho extends React.Component {
                     return !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true);
                 }, Object.create(null)).map((prodCarrinho) => {
                     return (
-                        <div key={prodCarrinho.name}>
-                            <p>{prodCarrinho.quantidade}X</p>
-                            <p>{prodCarrinho.name}</p>
+                        <div className="info-carrinho" key={prodCarrinho.name}>
+                            <p>{prodCarrinho.quantidade}x {prodCarrinho.name}</p>
                             <button onClick={() => this.props.apagaItemDoCarrinho(prodCarrinho)}>Remover</button>
                         </div>
                     )

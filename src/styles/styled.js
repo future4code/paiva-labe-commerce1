@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
 display: grid;
-grid-template-columns: 200px 1fr 1fr;
-grid-template-rows: 100px 1fr 1fr 200px;
+grid-template-columns:  200px 1fr 200px;
+grid-template-rows: 100px 1fr 1fr 300px;
 min-height: 100vh;
 
 header {
@@ -23,19 +23,33 @@ footer {
     background-color: #FDEA2D;
 }
 
+.container-lado-direito {
+    grid-column: 3;
+    grid-row: 2 / -1;
+    background-color: #d3d4d6;
+}
+
 .container-lado-esquerdo {
-    grid-column: 1;
-    grid-row: 2 / 3;
-    background-color: lightblue;
+    grid-row: 2 / -1;
+    background-color: #d3d4d6;
 }
 
 `
 export const CarrinhoContainer = styled.div`
-border:1px solid black;
+/* border:1px solid black; */
+.info-carrinho {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    align-items: center;
+    button {
+        padding: 5px;
+    }
+}
 `
 export const HomeContainer = styled.div`
 grid-row: 2 / span 3;
-grid-column: 2 / span 3;
+grid-column: 2;
 
 .home-container-align {
     min-height: 100%;
@@ -48,18 +62,21 @@ grid-column: 2 / span 3;
 
 .container-do-card {
     display: flex;
-    border: 1px solid black;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-flow: row wrap;
+    margin: 20px;
         .card {
             display: flex;
-            border: 1px solid black;
-            border-radius: 5px;
             width: 250px;
             margin: 5px auto;
             align-items: center;
             flex-direction: column;
+            cursor: pointer;
             p {
                 margin-top: 10px;
+                strong {
+                    font-size: 14pt;
+                }
             }
             img {
             margin: 2% auto;
@@ -68,17 +85,27 @@ grid-column: 2 / span 3;
             border-radius: 5px;
         }
         .botao {
-            padding: 5px;
-            margin-bottom: 10px;
-            font-size: 10pt;
-            border-radius: 10px;
+            border: none;
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 14pt;
+            border-radius: 5px;
             background: #00aa5b;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 20px;
             cursor: pointer;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
         }
+    }
+    .card:hover {
+            border: 1px solid #d3d4d6;
+            border-radius: 5px;     
+    }
+    .botao:hover {
+        background: rgba(0,170,91,0.8);
+
     }
 }
 `
