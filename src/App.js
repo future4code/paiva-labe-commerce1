@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { MainContainer } from './styles/styled'
 import GlobalStyle from './styles/global'
@@ -13,6 +14,11 @@ import Camiseta6 from './img/camisetas/camiseta6.jpg'
 import Camiseta7 from './img/camisetas/camiseta7.jpg'
 import Camiseta8 from './img/camisetas/camiseta8.jpg'
 import Camiseta9 from './img/camisetas/camiseta9.png'
+import facebookIcon from './img/icon/facebook-app-symbol.svg'
+import InstagramIcon from './img/icon/instagram.svg'
+import Logo from './img/icon/logo.png'
+import GithubLogo from './img/icon/github-big-logo.svg'
+import PinterestIcon from './img/icon/pinterest-4.svg'
 
 
 export default class App extends React.Component {
@@ -82,25 +88,25 @@ export default class App extends React.Component {
 
   adicionaItemAoCarrinho = (produto) => {
     const carrinhoTemp = this.state.produtosCarrinho
-    const resultadoFiltro = carrinhoTemp.filter((item) => { return item.id === produto.id})
-     if (resultadoFiltro.length > 0) {
-       const somaCarrinho = carrinhoTemp.map((item)=>{
-         if (resultadoFiltro[0].id===item.id) {
-           item.quantidade++
-         }
-         return item
-       })
-       this.setState({ produtosCarrinho:somaCarrinho})
-     } else if (resultadoFiltro.length===0){
-       const itemCarrinho = {
-         id: produto.id,
-         name: produto.name,
-         value: produto.value,
-         quantidade: 1
-       }
-       const carrinho = [...this.state.produtosCarrinho, itemCarrinho]
-       this.setState({produtosCarrinho:carrinho})
-     }
+    const resultadoFiltro = carrinhoTemp.filter((item) => { return item.id === produto.id })
+    if (resultadoFiltro.length > 0) {
+      const somaCarrinho = carrinhoTemp.map((item) => {
+        if (resultadoFiltro[0].id === item.id) {
+          item.quantidade++
+        }
+        return item
+      })
+      this.setState({ produtosCarrinho: somaCarrinho })
+    } else if (resultadoFiltro.length === 0) {
+      const itemCarrinho = {
+        id: produto.id,
+        name: produto.name,
+        value: produto.value,
+        quantidade: 1
+      }
+      const carrinho = [...this.state.produtosCarrinho, itemCarrinho]
+      this.setState({ produtosCarrinho: carrinho })
+    }
   }
 
   onChangeBuscaNome = (event) => {
@@ -116,11 +122,11 @@ export default class App extends React.Component {
   };
 
   apagaItemDoCarrinho = (prodCar) => {
-    const itensNaoDeletados = this.state.produtosCarrinho.map((prods) =>{
+    const itensNaoDeletados = this.state.produtosCarrinho.map((prods) => {
       if (prods.id === prodCar.id) {
-        return {...prods, quantidade: prods.quantidade-1}
-      } 
-        return prods
+        return { ...prods, quantidade: prods.quantidade - 1 }
+      }
+      return prods
     }).filter((prods) => prods.quantidade > 0)
     this.setState({ produtosCarrinho: itensNaoDeletados })
   }
@@ -134,8 +140,8 @@ export default class App extends React.Component {
         </header>
         <div className="container-lado-direito">
           <Carrinho
-          produtosCarrinho={this.state.produtosCarrinho}
-          apagaItemDoCarrinho={this.apagaItemDoCarrinho}
+            produtosCarrinho={this.state.produtosCarrinho}
+            apagaItemDoCarrinho={this.apagaItemDoCarrinho}
           />
         </div>
         <div className="container-lado-esquerdo">
@@ -146,20 +152,91 @@ export default class App extends React.Component {
             onChangeBuscaNome={this.onChangeBuscaNome}
             onChangeValorMin={this.onChangeValorMin}
             onChangeValorMax={this.onChangeValorMax}
-        />
+          />
         </div>
-        <Home 
-        produtos={this.state.produtos} 
-        inputValue={this.state.inputValue} 
-        inputValorMaximo={this.state.inputValorMaximo} 
-        inputValorMinimo={this.state.inputValorMinimo} id={this.state.id}
-        adicionaItemAoCarrinho={this.adicionaItemAoCarrinho}
+        <Home
+          produtos={this.state.produtos}
+          inputValue={this.state.inputValue}
+          inputValorMaximo={this.state.inputValorMaximo}
+          inputValorMinimo={this.state.inputValorMinimo} id={this.state.id}
+          adicionaItemAoCarrinho={this.adicionaItemAoCarrinho}
         />
         <footer>
-          <h1>Oi, eu sou um footer !</h1>
-        </footer>
+          <div className="footer-container">
+
+            <div className="footer-lado-esquerdo">
+              <div className="redes-logo">
+                <img src={Logo} />
+              </div>
+              <div className="redes-sociais-lista">
+                <img src={facebookIcon} />
+                <img src={InstagramIcon} />
+                <img src={PinterestIcon} />
+              </div>
+              <div className="text-dev-align">
+                <h3>Desenvolvedores</h3>
+              </div>
+              <div className="redes-sociais-devs">
+
+
+                <div className="github-align">
+
+                  <a href="https://www.google.com/br" target="_blank">
+                    <img src={GithubLogo} />
+                  </a>
+                  <a href="https://www.google.com/br" target="_blank">Adrian Américo</a>
+
+                </div>
+                <div className="github-align">
+                  <a href="https://www.google.com/br" target="_blank">
+                    <img src={GithubLogo} />
+                  </a>
+                  <a href="https://www.google.com/br" target="_black">Matheus Garrido</a>
+
+                </div>
+                <div className="github-align">
+                  <a href="https://www.google.com/br" target="_blank">
+                    <img src={GithubLogo} />
+                  </a>
+                  <a href="#">Tânia Elza</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="footer-centro">
+
+              <p>Sobre nós</p>
+              <p>nossos produtos e estampas</p>
+              <p>Perguntas frequentes</p>
+              <p>Frete e entrega</p>
+              <p>Trocas e devoluções</p>
+              <p>Política de privacidade</p>
+              <p>Imprensa</p>
+              <p>Programa de pontos</p>
+              <p>Seja um Afiliado</p>
+              <p>Quero revender</p>
+
+            </div>
+
+            <div className="footer-lado-direito">
+
+              <div className="footer-lado-direito-contatos">
+                <ul>
+                  <li><h3>Cental de Atendimento</h3></li>
+                  <li><p>11 12345-6789</p></li>
+                  <li><p>teste@lalala.com</p></li>
+                  <li><p>Seg a sex das 09h às 18h</p></li>
+                </ul>
+
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </footer >
         <GlobalStyle />
-      </MainContainer>
+      </MainContainer >
     );
   }
 }
