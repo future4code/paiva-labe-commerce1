@@ -16,19 +16,20 @@ export default class Carrinho extends React.Component {
         return (
 
             <CarrinhoContainer>
-                <h3>Carrinho:</h3>
+                <h3>Carrinho</h3>
                 {this.props.produtosCarrinho.filter(function (a) {
                     return !this[JSON.stringify(a)] && (this[JSON.stringify(a)] = true);
                 }, Object.create(null)).map((prodCarrinho) => {
                     return (
                         <div className="info-carrinho" key={prodCarrinho.name}>
-                            <p>{prodCarrinho.quantidade}x {prodCarrinho.name}</p>
+                            <p>{prodCarrinho.quantidade}x</p> 
+                            <p>{prodCarrinho.name}</p>
                             <button onClick={() => this.props.apagaItemDoCarrinho(prodCarrinho)}>Remover</button>
                         </div>
                     )
                 })
                 }
-                <p>Valor total: {this.changeTotalValue()}</p>
+                <p><strong>Valor total:</strong> {this.changeTotalValue()}</p>
             </CarrinhoContainer>
         )
     }
