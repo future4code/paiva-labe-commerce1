@@ -170,7 +170,7 @@ export default class App extends React.Component {
               <div className="redes-sociais-lista">
                 <img src={facebookIcon} />
                 <img src={InstagramIcon} />
-                <img src={PinterestIcon} />
+                {/* <img src={PinterestIcon} /> */}
               </div>
               <div className="text-dev-align">
                 <h3>Desenvolvedores</h3>
@@ -190,14 +190,14 @@ export default class App extends React.Component {
                   <a href="https://www.google.com/br" target="_blank">
                     <img src={GithubLogo} />
                   </a>
-                  <a href="https://www.google.com/br" target="_black">Matheus Garrido</a>
+                  <a href="https://www.google.com/br" target="_black"> Matheus Garrido</a>
 
                 </div>
                 <div className="github-align">
                   <a href="https://www.google.com/br" target="_blank">
                     <img src={GithubLogo} />
                   </a>
-                  <a href="#">Tânia Elza</a>
+                  <a href="https://github.com/elizaoliveira88" target="_blank">Tânia Eliza</a>
                 </div>
               </div>
             </div>

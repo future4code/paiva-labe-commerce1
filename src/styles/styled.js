@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainContainer = styled.div`
 display: grid;
 grid-template-columns:  200px 1fr 200px;
-grid-template-rows: 150px 20px 1fr 1fr 300px;
+grid-template-rows: 150px  1fr 1fr 300px;
 min-height: 100vh;
 
 footer {
@@ -75,6 +75,7 @@ footer {
                     cursor: pointer;
                     text-decoration: none;
                     color: black;
+                    margin: 0px 10px;
                     
                     }
                     
@@ -173,6 +174,7 @@ grid-column: 2;
 }
 
 .container-do-card {
+    
     display: flex;
     flex-flow: row wrap;
     margin: 20px;
@@ -196,6 +198,7 @@ grid-column: 2;
             border-radius: 5px;
         }
         .botao {
+            box-shadow: 3px 3px 3px 3px  lightgrey;
             border: none;
             width: 95%;
             padding: 10px;
