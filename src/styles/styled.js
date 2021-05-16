@@ -12,7 +12,98 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FDEA2D;
+    background-color: #ccc;
+
+    .footer-container {
+        padding: 10px;
+        background-color: #ccc;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        /* flex-flow: row wrap; */
+        flex-wrap: wrap;
+        align-items: center;
+        img {
+           cursor: pointer;
+           margin: 10px 0;
+        }
+
+        .footer-lado-esquerdo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .redes-logo {
+
+                img {
+                    width: 10rem;
+                }
+            }
+            .redes-sociais-lista {
+                display: flex;
+                justify-content: space-between;
+                width: 30%;
+                margin-bottom: 5px;
+                img {
+                    width: 2rem;
+                    margin: 0 5px;
+                    
+                }
+            }
+            .redes-sociais-devs {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                
+                .text-dev-align {
+                    display: flex;
+                    justify-content: center;
+                    padding: 5px;
+                }
+
+                img {
+                    width: 2rem;
+                }
+                .github-align {
+                    display: flex;
+                    flex-direction: column;
+                  
+                    a{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: black;
+                    
+                    }
+                    
+                }
+        }
+        }
+
+        .footer-centro {
+            p {
+                line-height: 1.3rem;
+            }
+            p:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+        .footer-lado-direito-contatos {
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+            h3 {
+                margin: 5px 0;
+            }
+            p {
+                line-height: 1.4rem;
+            }
+        }
+    }
+
 }
 
 .container-lado-direito {
@@ -83,7 +174,6 @@ grid-column: 2;
 
 .container-do-card {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-flow: row wrap;
     margin: 20px;
         .card {
@@ -148,6 +238,3 @@ grid-row: 2;
     }
 }
 `
-
-
-
